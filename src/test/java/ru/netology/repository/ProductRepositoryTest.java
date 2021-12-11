@@ -26,7 +26,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void removeById() {
+    void shouldRemoveByIdIfExists() {
         repo.removeById(15);
         Product[] actual = repo.findAll();
         Product[] expected = new Product[]{book1, tShirt1, tShirt2};
@@ -34,7 +34,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void removeById2() {
+    void shouldRemoveByIdIfDoesNotExist() {
         assertThrows(NotFoundException.class, () -> {
             repo.removeById(324);
         });
